@@ -1,7 +1,7 @@
 # Servidor Web
 A construção de um servidor web simples.
 
-Com este projeto, é possível ter a troca de requisições HTTP entre o servidor e um navegador web cliente.
+Com este projeto, é possível ter a troca de requisições HTTP entre uma aplicação C++ servidora e um navegador web cliente.
 
 ## Compilação
 g++ main.cpp servidor.cpp socket.cpp -o Servidor
