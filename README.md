@@ -1,6 +1,5 @@
 # Servidor Web
 A construção de um servidor web simples.
-
 Com este projeto, é possível ter a troca de requisições HTTP entre o servidor e um navegador web cliente.
 
 ## Compilação
