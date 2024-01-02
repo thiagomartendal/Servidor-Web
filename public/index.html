@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Requisição
+        </title>
+        <link rel="icon" type="image/png" href="/logo.png" />
+        <link href="estilo.css" type="text/css" rel="stylesheet" />
+    </head>
+    <body>
+      <h1 id="rota1"></h1>
+      <h1 id="rota2"></h1>
+      <script type="text/javascript">
+          let rota1 = document.getElementById('rota1')
+          let rota2 = document.getElementById('rota2')
+          /*
+          * Quando se especifica os headers, é enviada uma requisição OPTIONS
+          * para se realizar testes com o servidor. A requisição OPTIONS também
+          * é enviada para testes com o servidor quando se utilizam métodos HTTP
+          * mais complexos como PUT e DELETE.
+          * Após os testes com a requisição OPTIONS terminarem, são enviadas as
+          * requisições solicitadas.
+          */
+          fetch('/', {
+              method: 'PUT',
+              mode: 'cors',
+              headers: {
+                'content-type': 'application/json'
+              },
+              body: JSON.stringify({
+                  porta: 4000,
+                  rota: '/'
+              })
+          }).then(res => {
+              console.log(res)
+              return res.json()
+          }).then(res => {
+              rota1.innerHTML = 'Valor: ' + res['valor']
+          }).catch(err => {
+              console.log('Erro:', err)
+          })
+          fetch('/api', {
+              method: 'POST',
+              mode: 'cors',
+              headers: {
+                'content-type': 'application/json'
+              },
+              body: JSON.stringify({
+                  porta: 4000,
+                  rota: '/api'
+              })
+          }).then(res => {
+              console.log(res)
+              return res.json()
+          }).then(res => {
+              rota2.innerHTML = 'Valor: ' + res['valor']
+          }).catch(err => {
+              console.log('Erro:', err)
+          })
+      </script>
+    </body>
+</html>
